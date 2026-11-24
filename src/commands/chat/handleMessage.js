@@ -74,6 +74,7 @@ export async function handleChatMessage(msg) {
     }
 
     const botMessageIds = await sendReplyInSmartChunks(bot, chatId, fullText);
+    console.log(botMessageIds);
     for (const mid of botMessageIds) pushTelegramMessageId(session, mid);
 
     session.messages.push({ role: 'assistant', content: fullText });
